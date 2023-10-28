@@ -9,7 +9,7 @@ type Props = {
     station: Station;
 };
 
-const iconHtml = renderToString(
+const iconHtml = (
     <div className="flex flex-col justify-center items-center">
         <div className="-m-4 w-8 h-8 rounded-full bg-emerald-400 flex justify-center items-center">
             <FontAwesomeIcon icon={faBicycle} size={"xl"} />
@@ -18,7 +18,7 @@ const iconHtml = renderToString(
     </div>
 );
 
-const stationIcon = L.divIcon({ html: iconHtml, iconSize: [0, 0] });
+const stationIcon = L.divIcon({ html: renderToString(iconHtml), iconSize: [0, 0] });
 
 const StationMarker = ({ station }: Props) => {
     return (
@@ -29,7 +29,13 @@ const StationMarker = ({ station }: Props) => {
                 icon={stationIcon}
                 riseOnHover
             >
-                <Popup></Popup>
+                <Popup>
+                    <div className="font-bold text-lg">{station.stationName}</div>
+                    <div className="text-base text-slate-600">{station.stationAddress}</div>
+                    <a href={`/station/${station.id}`} className="cursor-pointer">
+                        Avaa aseman tiedot
+                    </a>
+                </Popup>
             </Marker>
         </div>
     );
