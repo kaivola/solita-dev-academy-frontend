@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 
 import { Station } from "@/lib/dev-academy-assignment";
 
-const StationMap = dynamic(() => import("src/components/StationMap/StationMap"), { ssr: false });
+const StationMap = dynamic(() => import("src/components/StationMap"), { ssr: false });
 
 const Home = async () => {
     const res = await fetch("http://localhost:3000/api/stations");

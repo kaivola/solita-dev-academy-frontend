@@ -8,14 +8,14 @@ import MarkerClusterGroup from "react-leaflet-cluster";
 
 import { Station } from "@/lib/dev-academy-assignment";
 
-import ClusterIcon from "./MarkerIcon/ClusterIcon";
-import StationMarker from "./StationMarker/StationMarker";
+import { ClusterIcon } from "./MarkerIcon";
+import StationMarker from "./StationMarker";
 
 type Props = {
     stations: Station[];
 };
 
-const StationMap = ({ stations }: Props) => {
+export const StationMap = ({ stations }: Props) => {
     return (
         <div className="h-full w-full">
             <MapContainer
@@ -50,5 +50,3 @@ const StationMap = ({ stations }: Props) => {
         </div>
     );
 };
-
-export default StationMap;
