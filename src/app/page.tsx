@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 
+import StationList from "@/components/StationList";
 import { Station } from "@/lib/dev-academy-assignment";
 
 const StationMap = dynamic(() => import("src/components/StationMap"), { ssr: false });
@@ -10,12 +11,8 @@ const Home = async () => {
 
     if (!stations) return null;
     return (
-        <div className="h-full flex">
-            <div>
-                {stations.map((c) => {
-                    return <div key={c.id}>{c.stationName}</div>;
-                })}
-            </div>
+        <div className="h-full relative">
+            <StationList stations={stations} />
             <StationMap stations={stations} />
         </div>
     );
