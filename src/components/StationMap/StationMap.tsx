@@ -1,10 +1,13 @@
 "use client";
-import { Station } from "@/lib/dev-academy-assignment";
+
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { renderToString } from "react-dom/server";
 import { MapContainer, TileLayer } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
+
+import { Station } from "@/lib/dev-academy-assignment";
+
 import ClusterIcon from "./MarkerIcon/ClusterIcon";
 import StationMarker from "./StationMarker/StationMarker";
 
