@@ -1,8 +1,8 @@
+import StationIcon from "@/components/StationMap/MarkerIcon/StationIcon";
 import { Station } from "@/lib/dev-academy-assignment";
 import L from "leaflet";
 import { renderToString } from "react-dom/server";
 import { Marker, Popup } from "react-leaflet";
-import StationIcon from "../MarkerIcon/StationIcon";
 
 type Props = {
     station: Station;

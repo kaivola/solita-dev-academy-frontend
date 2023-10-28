@@ -17,8 +17,7 @@ export interface StationStatistics {
     averageDurationOfJourneys: number;
 }
 
-export interface PageImpl<T> extends Chunk<T>, Page<T> {
-}
+export interface PageImpl<T> extends Chunk<T>, Page<T> {}
 
 export interface Pageable {
     offset: number;
@@ -34,11 +33,9 @@ export interface Sort extends Streamable<Order>, Serializable {
     unsorted: boolean;
 }
 
-export interface Serializable {
-}
+export interface Serializable {}
 
-export interface Chunk<T> extends Slice<T>, Serializable {
-}
+export interface Chunk<T> extends Slice<T>, Serializable {}
 
 export interface Page<T> extends Slice<T> {
     totalElements: number;
@@ -69,21 +66,17 @@ export interface Slice<T> extends Streamable<T> {
     pageable: Pageable;
 }
 
-export interface Iterable<T> {
-}
+export interface Iterable<T> {}
 
-export interface Supplier<T> {
-}
+export interface Supplier<T> {}
 
-export interface Stream<T> extends BaseStream<T, Stream<T>> {
-}
+export interface Stream<T> extends BaseStream<T, Stream<T>> {}
 
 export interface BaseStream<T, S> extends AutoCloseable {
     parallel: boolean;
 }
 
-export interface AutoCloseable {
-}
+export interface AutoCloseable {}
 
 export type Direction = "ASC" | "DESC";
 
