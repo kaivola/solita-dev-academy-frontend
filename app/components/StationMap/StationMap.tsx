@@ -1,8 +1,11 @@
 "use client";
 import { Station } from "@/lib/dev-academy-assignment";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { renderToString } from "react-dom/server";
 import { MapContainer, TileLayer } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
+import ClusterIcon from "./MarkerIcon/ClusterIcon";
 import StationMarker from "./StationMarker/StationMarker";
 
 type Props = {
@@ -26,7 +29,16 @@ const StationMap = ({ stations }: Props) => {
                     attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
                 />
-                <MarkerClusterGroup chunkedLoading showCoverageOnHover={false} disableClusteringAtZoom={14}>
+                <MarkerClusterGroup
+                    chunkedLoading
+                    showCoverageOnHover={false}
+                    disableClusteringAtZoom={14}
+                    iconCreateFunction={function (cluster: any) {
+                        return L.divIcon({
+                            html: renderToString(<ClusterIcon count={cluster.getChildCount()} />)
+                        });
+                    }}
+                >
                     {stations.map((station) => (
                         <StationMarker key={`marker-${station.id}`} station={station} />
                     ))}
