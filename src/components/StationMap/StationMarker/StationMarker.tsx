@@ -1,9 +1,11 @@
 import L from "leaflet";
 import { renderToString } from "react-dom/server";
-import { Marker, Popup } from "react-leaflet";
+import { Marker } from "react-leaflet";
 
 import { StationIcon } from "@/components/StationMap/MarkerIcon";
 import { Station } from "@/lib/dev-academy-assignment";
+
+import StationPopup from "./StationPopup";
 
 type Props = {
     station: Station;
@@ -20,13 +22,7 @@ export const StationMarker = ({ station }: Props) => {
                 icon={stationIcon}
                 riseOnHover
             >
-                <Popup>
-                    <div className="font-bold text-lg">{station.stationName}</div>
-                    <div className="text-base text-slate-600">{station.stationAddress}</div>
-                    <a href={`/station/${station.id}`} className="cursor-pointer">
-                        Avaa aseman tiedot
-                    </a>
-                </Popup>
+                <StationPopup id={station.id} name={station.stationName} address={station.stationAddress} />
             </Marker>
         </div>
     );
