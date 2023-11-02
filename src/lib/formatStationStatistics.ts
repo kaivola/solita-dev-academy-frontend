@@ -13,16 +13,16 @@ export const formatDistance = (distance: string): String => {
 
 export const formatDuration = (duration: number): String => {
     if (isNaN(duration) || duration < 0) return "";
-    if (duration < 60) return duration + "sek";
+    if (duration < 60) return duration + "s";
 
     if (duration > 3600) {
         const hours = Math.floor(duration / 3600);
         const mins = Math.floor((duration % 3600) / 60);
         const seconds = duration % 60;
-        return `${hours}h ${mins}min ${seconds}sek`;
+        return `${hours}h ${mins}min ${seconds}s`;
     }
 
     const mins = Math.floor(duration / 60);
     const seconds = duration % 60;
-    return `${mins}min ${seconds}sek`;
+    return `${mins}min ${seconds}s`;
 };

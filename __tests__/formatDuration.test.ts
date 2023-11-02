@@ -9,21 +9,21 @@ describe("formatDuration", () => {
     it("should work with sub 1 min durations", () => {
         const duration = 45;
         const res = formatDuration(duration);
-        expect(res).toBe("45sek");
+        expect(res).toBe("45s");
     });
     it("should work with over 1 min durations1", () => {
         const duration = 100;
         const res = formatDuration(duration);
-        expect(res).toBe("1min 40sek");
+        expect(res).toBe("1min 40s");
     });
     it("should work with over 1 min durations2", () => {
         const duration = 1020;
         const res = formatDuration(duration);
-        expect(res).toBe("17min 0sek");
+        expect(res).toBe("17min 0s");
     });
     it("should work with over 1 hour durations", () => {
         const duration = 3670;
         const res = formatDuration(duration);
-        expect(res).toBe("1h 1min 10sek");
+        expect(res).toBe("1h 1min 10s");
     });
 });
