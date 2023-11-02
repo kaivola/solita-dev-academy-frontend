@@ -1,5 +1,6 @@
 /* tslint:disable */
-// Generated using typescript-generator version 2.9.456 on 2023-10-24 20:09:44.
+/* eslint-disable */
+// Generated using typescript-generator version 3.2.1263 on 2023-11-01 21:24:43.
 
 export interface Station {
     id: number;
@@ -7,8 +8,22 @@ export interface Station {
     stationAddress: string;
     coordinateX: string;
     coordinateY: string;
-    statistics?: StationStatistics;
+    statistics: StationStatistics;
 }
+
+export interface StationDto {
+    id: number;
+    name: string;
+    address: string;
+    coordinateX: string;
+    coordinateY: string;
+    numOfJourneysStarting: number;
+    numOfJourneysEnding: number;
+    averageDistanceOfJourneys: string;
+    averageDurationOfJourneys: number;
+}
+
+export interface PageImpl<T> extends Chunk<T>, Page<T> {}
 
 export interface StationStatistics {
     numOfJourneysStarting: number;
@@ -16,8 +31,6 @@ export interface StationStatistics {
     averageDistanceOfJourneys: number;
     averageDurationOfJourneys: number;
 }
-
-export interface PageImpl<T> extends Chunk<T>, Page<T> {}
 
 export interface Pageable {
     offset: number;
@@ -38,8 +51,8 @@ export interface Serializable {}
 export interface Chunk<T> extends Slice<T>, Serializable {}
 
 export interface Page<T> extends Slice<T> {
-    totalElements: number;
     totalPages: number;
+    totalElements: number;
 }
 
 export interface Streamable<T> extends Iterable<T>, Supplier<Stream<T>> {
@@ -51,19 +64,19 @@ export interface Order extends Serializable {
     property: string;
     ignoreCase: boolean;
     nullHandling: NullHandling;
-    descending: boolean;
     ascending: boolean;
+    descending: boolean;
 }
 
 export interface Slice<T> extends Streamable<T> {
-    first: boolean;
     size: number;
     content: T[];
     number: number;
     sort: Sort;
-    numberOfElements: number;
+    first: boolean;
     last: boolean;
     pageable: Pageable;
+    numberOfElements: number;
 }
 
 export interface Iterable<T> {}
