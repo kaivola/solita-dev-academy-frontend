@@ -36,11 +36,11 @@ export const StationMap = ({ stations }: Props) => {
                     chunkedLoading
                     showCoverageOnHover={false}
                     disableClusteringAtZoom={14}
-                    iconCreateFunction={function (cluster: any) {
-                        return L.divIcon({
+                    iconCreateFunction={(cluster: any) =>
+                        L.divIcon({
                             html: renderToString(<ClusterIcon count={cluster.getChildCount()} />)
-                        });
-                    }}
+                        })
+                    }
                 >
                     {stations.map((station) => (
                         <StationMarker key={`marker-${station.id}`} station={station} />

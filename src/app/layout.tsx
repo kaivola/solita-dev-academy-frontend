@@ -12,7 +12,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             <body>
                 <div className="flex h-screen">
                     <div className="h-full flex-grow bg-primaryBackground">
-                        <div className="p-8 h-full">{children}</div>
+                        <div className="h-full">{children}</div>
                     </div>
                 </div>
             </body>
