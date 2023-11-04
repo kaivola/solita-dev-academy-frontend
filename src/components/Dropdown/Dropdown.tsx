@@ -4,7 +4,7 @@ import { useState } from "react";
 
 type Props = {
     onSelect: (option: any) => void;
-    options: string[];
+    options: DropdownOptions[];
     title: string;
 };
 
@@ -12,9 +12,9 @@ export const Dropdown = ({ onSelect, options, title }: Props) => {
     const [selected, setSelected] = useState<string | undefined>();
     const [open, setOpen] = useState<boolean>(false);
 
-    const handleSelect = (option?: string) => {
+    const handleSelect = (option?: DropdownOptions) => {
         onSelect(option);
-        setSelected(option);
+        setSelected(option?.title);
         setOpen(false);
     };
 
@@ -34,11 +34,11 @@ export const Dropdown = ({ onSelect, options, title }: Props) => {
                         {options.map((option) => {
                             return (
                                 <div
-                                    key={option}
+                                    key={option.value}
                                     onClick={() => handleSelect(option)}
                                     className="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-slate-100"
                                 >
-                                    {option}
+                                    {option.title}
                                 </div>
                             );
                         })}
