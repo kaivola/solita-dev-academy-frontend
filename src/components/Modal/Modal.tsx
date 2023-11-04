@@ -1,5 +1,8 @@
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useRef } from "react";
+
+import { useClickOutside } from "@/hooks/useClickOutside";
 
 type Props = {
     children: string | JSX.Element | JSX.Element[] | undefined;
@@ -7,6 +10,9 @@ type Props = {
 };
 
 export const Modal = ({ children, handleClose }: Props) => {
+    const ref = useRef<HTMLDivElement | null>(null);
+
+    useClickOutside(ref, handleClose);
     return (
         <div className="fixed z-[9999] left-0 right-0 top-0 bottom-0 mx-auto bg-gradient-to-br from-emerald-50/50 to-white/50 ">
             <div
@@ -15,7 +21,11 @@ export const Modal = ({ children, handleClose }: Props) => {
             >
                 <FontAwesomeIcon icon={faClose} size="2xl" />
             </div>
-            <div className="flex flex-col justify-center items-center h-full w-full">{children}</div>
+            <div className="flex flex-col justify-center items-center h-full w-full">
+                <div className="xl:w-1/2 mb-16 bg-white py-8 px-12 rounded-2xl shadow-xl" ref={ref}>
+                    {children}
+                </div>
+            </div>
         </div>
     );
 };
