@@ -9,6 +9,8 @@ import Modal from "@/components/Modal";
 import { StationDto } from "@/lib/dev-academy-assignment";
 import { formatDistance, formatDuration } from "@/lib/formatStationStatistics";
 
+const APP_URL = process.env.NEXT_APP_URL;
+
 export const StationModal = () => {
     const router = useRouter();
     const [station, setStation] = useState<StationDto>();
@@ -23,7 +25,7 @@ export const StationModal = () => {
     useEffect(() => {
         if (!stationId) return;
         (async () => {
-            const res = await fetch(`http://localhost:3000/api/stations/${stationId}`);
+            const res = await fetch(`${APP_URL}/api/stations/${stationId}`);
             if (res.ok && res.status == 200) {
                 setStation(await res.json());
             }

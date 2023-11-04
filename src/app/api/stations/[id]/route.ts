@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 import { Station } from "@/lib/dev-academy-assignment";
 
-export const BASE_URL = process.env.NEXT_BACKEND_URL;
+const BASE_URL = process.env.NEXT_BACKEND_URL;
 
 export const GET = async (_request: Request, { params }: { params: { id: number } }) => {
     const { id } = params;
