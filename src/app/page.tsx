@@ -6,7 +6,7 @@ import { Station } from "@/lib/dev-academy-assignment";
 
 const StationMap = dynamic(() => import("src/components/StationMap"), { ssr: false });
 
-const APP_URL = process.env.NEXT_APP_URL;
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
 
 const Home = async () => {
     const res = await fetch(`${APP_URL}/api/stations`);

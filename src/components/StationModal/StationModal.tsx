@@ -9,7 +9,7 @@ import Modal from "@/components/Modal";
 import { StationDto } from "@/lib/dev-academy-assignment";
 import { formatDistance, formatDuration } from "@/lib/formatStationStatistics";
 
-const APP_URL = process.env.NEXT_APP_URL;
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
 
 export const StationModal = () => {
     const router = useRouter();
