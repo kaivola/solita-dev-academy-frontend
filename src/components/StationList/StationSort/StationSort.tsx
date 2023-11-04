@@ -20,7 +20,7 @@ const sortOptions: DropdownOptions[] = [
         value: SortType.ALPHABETICAL
     },
     {
-        title: "Etäisyys",
+        title: "Etäisyysjärjestys",
         value: SortType.DISTANCE
     }
 ];
@@ -66,8 +66,8 @@ export const StationSort = ({ stations, setStations }: Props) => {
         }
     };
     return (
-        <div className="pr-5 pl-8 border-b">
-            <Dropdown title={"Järjestys"} onSelect={handleSortSelect} options={sortOptions} />
+        <div className="mr-5 ml-6 pl-2 mb-2 border-2 rounded-md">
+            <Dropdown onSelect={handleSortSelect} options={sortOptions} />
         </div>
     );
 };
