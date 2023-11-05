@@ -27,17 +27,17 @@ export const StationSearch = ({ stations, setStations }: Props) => {
     const clearSearch = () => setQuery("");
 
     return (
-        <div className="flex">
+        <div className="flex justify-between mr-5 ml-6 pl-2 mb-2 border-2 rounded-md h-12">
             <input
-                className="border-y-2 border-l-2 h-11 ml-6 my-2 pl-2 rounded-l-md focus:outline-none"
+                className="focus:outline-none min-w-0"
                 placeholder="Hae asemaa"
                 onChange={(event) => handleChange(event.target.value)}
                 value={query}
             />
-            <div className="flex justify-center items-center w-full mr-5 border-y-2 border-r-2 my-2 h-11 rounded-r-md">
+            <div className="flex justify-center items-center pr-2">
                 <FontAwesomeIcon
                     icon={faClose}
-                    className={"text-gray-700 ml-8 hover:cursor-pointer"}
+                    className={"text-gray-700 hover:cursor-pointer"}
                     size="lg"
                     onClick={() => clearSearch()}
                 />

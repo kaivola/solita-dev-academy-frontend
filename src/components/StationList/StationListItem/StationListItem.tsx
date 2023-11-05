@@ -22,7 +22,7 @@ export const StationListItem = ({ id, name }: Props) => {
                 onClick={() => handleClick(id)}
                 className="rounded-full flex items-center justify-between w-full h-12 hover:cursor-pointer"
             >
-                <div className="text-black">{name}</div>
+                <div className="text-black overflow-hidden">{name}</div>
                 <FontAwesomeIcon icon={faChevronRight} />
             </div>
         </div>
