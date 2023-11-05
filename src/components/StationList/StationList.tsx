@@ -21,7 +21,7 @@ export const StationList = ({ stations }: Props) => {
             <StationSort stations={filteredStations} setStations={setFilteredStations} />
             <div className="h-full overflow-auto">
                 {filteredStations.map((s) => (
-                    <StationListItem key={s.id} id={s.id} name={s.stationName} />
+                    <StationListItem key={s.id} id={s.id} name={s.name} />
                 ))}
             </div>
         </div>

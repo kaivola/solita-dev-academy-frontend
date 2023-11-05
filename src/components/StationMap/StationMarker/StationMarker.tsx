@@ -18,11 +18,11 @@ export const StationMarker = ({ station }: Props) => {
         <div>
             <Marker
                 key={`marker-${station.id}`}
-                position={[parseFloat(station.coordinateY), parseFloat(station.coordinateX)]}
+                position={[station.coordinateY, station.coordinateX]}
                 icon={stationIcon}
                 riseOnHover
             >
-                <StationPopup id={station.id} name={station.stationName} address={station.stationAddress} />
+                <StationPopup id={station.id} name={station.name} address={station.address} />
             </Marker>
         </div>
     );

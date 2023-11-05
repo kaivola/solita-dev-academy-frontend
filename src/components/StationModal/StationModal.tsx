@@ -6,14 +6,14 @@ import { useEffect, useState } from "react";
 
 import InfoCard from "@/components/InfoCard";
 import Modal from "@/components/Modal";
-import { StationDto } from "@/lib/dev-academy-assignment";
+import { Station } from "@/lib/dev-academy-assignment";
 import { formatDistance, formatDuration } from "@/lib/formatStationStatistics";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
 
 export const StationModal = () => {
     const router = useRouter();
-    const [station, setStation] = useState<StationDto>();
+    const [station, setStation] = useState<Station>();
     const params = useSearchParams();
     const stationId = params.get("station");
 

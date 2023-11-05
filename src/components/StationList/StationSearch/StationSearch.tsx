@@ -16,8 +16,8 @@ export const StationSearch = ({ stations, setStations }: Props) => {
         setStations(
             stations.filter(
                 (station) =>
-                    station.stationName.toLowerCase().includes(query.toLowerCase()) ||
-                    station.stationAddress.toLowerCase().includes(query.toLowerCase())
+                    station.name.toLowerCase().includes(query.toLowerCase()) ||
+                    station.address.toLowerCase().includes(query.toLowerCase())
             )
         );
     }, [query, setStations, stations]);

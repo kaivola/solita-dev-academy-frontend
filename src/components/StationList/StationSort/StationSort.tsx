@@ -46,11 +46,11 @@ export const StationSort = ({ stations, setStations }: Props) => {
             return [...stations].sort(
                 (a, b) =>
                     ruler.distance(
-                        [parseFloat(a.coordinateX), parseFloat(a.coordinateY)],
+                        [a.coordinateX, a.coordinateY],
                         [position.coords.longitude, position.coords.latitude]
                     ) -
                     ruler.distance(
-                        [parseFloat(b.coordinateX), parseFloat(b.coordinateY)],
+                        [b.coordinateX, b.coordinateY],
                         [position.coords.longitude, position.coords.latitude]
                     )
             );
@@ -62,7 +62,7 @@ export const StationSort = ({ stations, setStations }: Props) => {
         if (selected.value === SortType.DISTANCE) {
             setStations(await distanceSort);
         } else {
-            setStations([...stations].sort((a, b) => a.stationName.localeCompare(b.stationName)));
+            setStations([...stations].sort((a, b) => a.name.localeCompare(b.name)));
         }
     };
     return (
