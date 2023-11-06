@@ -27,8 +27,8 @@ const sortOptions: DropdownOptions[] = [
 
 const positionOptions: PositionOptions = {
     enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 60000
+    timeout: 60000,
+    maximumAge: 300000
 };
 
 const getPosition = (options?: PositionOptions): Promise<GeolocationPosition> => {
@@ -55,8 +55,7 @@ export const StationSort = ({ stations, setStations }: Props) => {
                     )
             );
         });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [stations]);
 
     const handleSortSelect = async (selected: DropdownOptions) => {
         if (selected.value === SortType.DISTANCE) {

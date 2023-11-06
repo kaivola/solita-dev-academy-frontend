@@ -13,12 +13,13 @@ type Props = {
 };
 
 export const StationList = ({ stations }: Props) => {
+    const [sortedStations, setSortedStations] = useState<Station[]>(stations);
     const [filteredStations, setFilteredStations] = useState<Station[]>(stations);
 
     return (
         <div className="absolute top-0 bottom-0 left-0 z-[999] h-[90%] py-4 ml-12 my-auto bg-white rounded-3xl shadow-lg w-1/4 2xl:w-1/6 3xl:w-[12.5%] flex flex-col">
-            <StationSearch stations={stations} setStations={setFilteredStations} />
-            <StationSort stations={filteredStations} setStations={setFilteredStations} />
+            <StationSearch stations={sortedStations} setStations={setFilteredStations} />
+            <StationSort stations={stations} setStations={setSortedStations} />
             <div className="h-full overflow-auto">
                 {filteredStations.map((s) => (
                     <StationListItem key={s.id} id={s.id} name={s.name} />
