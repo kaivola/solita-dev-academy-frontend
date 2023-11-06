@@ -16,11 +16,11 @@ enum SortType {
 
 const sortOptions: DropdownOptions[] = [
     {
-        title: "Aakkosjärjestys",
+        title: "Sort by Name",
         value: SortType.ALPHABETICAL
     },
     {
-        title: "Etäisyysjärjestys",
+        title: "Sort by Distance",
         value: SortType.DISTANCE
     }
 ];

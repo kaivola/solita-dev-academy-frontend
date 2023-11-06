@@ -21,7 +21,7 @@ export const StationPopup = ({ id, name, address }: Props) => {
             <div className="font-bold text-lg">{name}</div>
             <div className="text-base text-slate-600">{address}</div>
             <div onClick={() => openStationModal()} className="cursor-pointer text-blue-600">
-                Avaa aseman tiedot
+                Show station info
             </div>
         </Popup>
     );

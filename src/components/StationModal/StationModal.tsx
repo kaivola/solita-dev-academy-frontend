@@ -38,14 +38,14 @@ export const StationModal = () => {
             <div className="text-3xl">{station.name}</div>
             <div className="text-lg">{station.address}</div>
             <div className="mt-4 grid lg:grid-cols-2 gap-4">
-                <InfoCard title={"Asemalta alkaneet matkat"} value={station.numOfJourneysStarting} />
-                <InfoCard title={"Asemalle päättyneet matkat"} value={station.numOfJourneysEnding} />
+                <InfoCard title={"Journeys started from the station"} value={station.numOfJourneysStarting} />
+                <InfoCard title={"Journeys ended at the station"} value={station.numOfJourneysEnding} />
                 <InfoCard
-                    title={"Matkojen keskipituus"}
+                    title={"Average distance of the started journeys"}
                     value={formatDistance(station.averageDistanceOfJourneys)}
                 />
                 <InfoCard
-                    title={"Matkojen keskimääräinen kesto"}
+                    title={"Average duration of the started journeys"}
                     value={formatDuration(station.averageDurationOfJourneys)}
                 />
             </div>

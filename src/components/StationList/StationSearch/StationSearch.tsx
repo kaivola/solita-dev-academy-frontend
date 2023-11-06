@@ -30,7 +30,7 @@ export const StationSearch = ({ stations, setStations }: Props) => {
         <div className="flex justify-between mr-5 ml-6 pl-2 mb-2 border-2 rounded-md h-12">
             <input
                 className="focus:outline-none min-w-0"
-                placeholder="Hae asemaa"
+                placeholder="Search"
                 onChange={(event) => handleChange(event.target.value)}
                 value={query}
             />
