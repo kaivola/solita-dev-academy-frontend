@@ -29,13 +29,13 @@ export const Dropdown = ({ onSelect, options }: Props) => {
                 </button>
 
                 {open && (
-                    <div className="absolute top-4 right-0 mt-2 py-2 bg-white rounded-md shadow-xl z-20 border-2">
+                    <div className="absolute top-5 right-2 mt-2 py-2 bg-white rounded-md shadow-xl z-20 border-2 whitespace-nowrap">
                         {options.map((option) => {
                             return (
                                 <div
                                     key={option.value}
                                     onClick={() => handleSelect(option)}
-                                    className="block px-4 py-2 text-sm capitalize hover:bg-slate-100"
+                                    className="px-4 py-2 text-sm hover:bg-slate-100"
                                 >
                                     {option.title}
                                 </div>
