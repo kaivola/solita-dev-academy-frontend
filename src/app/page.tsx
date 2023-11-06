@@ -6,10 +6,10 @@ import { Station } from "@/lib/dev-academy-assignment";
 
 const StationMap = dynamic(() => import("src/components/StationMap"), { ssr: false });
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
+const API_URL = process.env.NEXT_BACKEND_URL;
 
 const Home = async () => {
-    const res = await fetch(`${APP_URL}/api/stations`);
+    const res = await fetch(`${API_URL}/stations`);
     const stations: Station[] = await res.json();
 
     if (!stations) return null;
