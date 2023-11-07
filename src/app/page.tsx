@@ -16,7 +16,6 @@ const Home = async () => {
     return (
         <div className="h-full relative">
             <StationModal />
-            <StationList stations={stations} />
             <StationMap stations={stations} />
         </div>
     );

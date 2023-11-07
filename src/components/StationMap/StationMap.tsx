@@ -6,6 +6,7 @@ import { renderToString } from "react-dom/server";
 import { MapContainer, TileLayer } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
 
+import StationList from "@/components/StationList";
 import { Station } from "@/lib/dev-academy-assignment";
 
 import { ClusterIcon } from "./MarkerIcon";
@@ -46,6 +47,7 @@ export const StationMap = ({ stations }: Props) => {
                         <StationMarker key={`marker-${station.id}`} station={station} />
                     ))}
                 </MarkerClusterGroup>
+                <StationList stations={stations} />
             </MapContainer>
         </div>
     );
