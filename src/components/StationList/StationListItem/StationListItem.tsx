@@ -4,12 +4,11 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type Props = {
-    id: number;
     name: string;
     onClickHandler: () => void;
 };
 
-export const StationListItem = ({ id, name, onClickHandler }: Props) => {
+export const StationListItem = ({ name, onClickHandler }: Props) => {
     return (
         <div className="px-8 border-b flex items-center justify-between hover:bg-slate-100">
             <div

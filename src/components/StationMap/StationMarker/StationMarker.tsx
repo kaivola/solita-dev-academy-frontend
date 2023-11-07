@@ -15,15 +15,13 @@ const stationIcon = L.divIcon({ html: renderToString(<StationIcon />), iconSize:
 
 export const StationMarker = ({ station }: Props) => {
     return (
-        <div>
-            <Marker
-                key={`marker-${station.id}`}
-                position={[station.coordinateY, station.coordinateX]}
-                icon={stationIcon}
-                riseOnHover
-            >
-                <StationPopup id={station.id} name={station.name} address={station.address} />
-            </Marker>
-        </div>
+        <Marker
+            key={`marker-${station.id}`}
+            position={[station.coordinateY, station.coordinateX]}
+            icon={stationIcon}
+            riseOnHover
+        >
+            <StationPopup id={station.id} name={station.name} address={station.address} />
+        </Marker>
     );
 };

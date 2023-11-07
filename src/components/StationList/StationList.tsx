@@ -27,17 +27,12 @@ export const StationList = ({ stations }: Props) => {
     };
 
     return (
-        <div className="absolute top-0 bottom-0 left-0 z-[999] h-[90%] py-4 ml-12 my-auto bg-white rounded-3xl shadow-lg w-1/4 2xl:w-1/6 3xl:w-[12.5%] flex flex-col text-base">
+        <div className="absolute top-0 bottom-0 left-0 z-[999] h-[90%] py-4 ml-12 my-auto bg-white rounded-3xl shadow-lg 3xl:w-[12.5%] min-w-fit flex flex-col text-base">
             <StationSearch stations={sortedStations} setStations={setFilteredStations} />
             <StationSort stations={stations} setStations={setSortedStations} />
-            <div className="h-full overflow-auto">
+            <div className="h-full overflow-auto whitespace-nowrap">
                 {filteredStations.map((s) => (
-                    <StationListItem
-                        key={s.id}
-                        id={s.id}
-                        name={s.name}
-                        onClickHandler={() => handleMarkerClick(s)}
-                    />
+                    <StationListItem key={s.id} name={s.name} onClickHandler={() => handleMarkerClick(s)} />
                 ))}
             </div>
         </div>
