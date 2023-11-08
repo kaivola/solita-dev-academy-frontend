@@ -37,6 +37,7 @@ export const StationMap = ({ stations }: Props) => {
                     chunkedLoading
                     showCoverageOnHover={false}
                     disableClusteringAtZoom={14}
+                    spiderfyDistanceMultiplier={1.5}
                     iconCreateFunction={(cluster: any) =>
                         L.divIcon({
                             html: renderToString(<ClusterIcon count={cluster.getChildCount()} />)
