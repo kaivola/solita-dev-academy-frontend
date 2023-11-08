@@ -33,8 +33,16 @@ export const StationList = ({ stations }: Props) => {
     }, []);
 
     const handleMarkerClick = (station: Station) => {
-        router.push("/" + "?station=" + station.id);
-        map.flyTo([station.coordinateY, station.coordinateX], 14);
+        map.once("moveend", () => {
+            map.eachLayer((layer) => {
+                // prettier-ignore
+                // @ts-expect-error _latlng doesn't exist in Layer type definition but exists in the object in runtime
+                if (layer._latlng && (layer._latlng.lat === station.coordinateY && layer._latlng.lng === station.coordinateX)) {
+                    layer.getPopup()?.openOn(map)
+                }
+            });
+        });
+        map.flyTo([station.coordinateY, station.coordinateX], 15);
     };
 
     return (
