@@ -13,7 +13,7 @@ export const formatDuration = (duration: number): String => {
     if (isNaN(duration) || duration < 0) return "";
     if (duration < 60) return duration + "s";
 
-    if (duration > 3600) {
+    if (duration >= 3600) {
         const hours = Math.floor(duration / 3600);
         const mins = Math.floor((duration % 3600) / 60);
         const seconds = duration % 60;

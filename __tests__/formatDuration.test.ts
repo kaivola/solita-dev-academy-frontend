@@ -26,4 +26,14 @@ describe("formatDuration", () => {
         const res = formatDuration(duration);
         expect(res).toBe("1h 1min 10s");
     });
+    it("should work with over 1 hour durations2", () => {
+        const duration = 3601;
+        const res = formatDuration(duration);
+        expect(res).toBe("1h 0min 1s");
+    });
+    it("should work with exactly 1h duration", () => {
+        const duration = 3600;
+        const res = formatDuration(duration);
+        expect(res).toBe("1h 0min 0s");
+    });
 });
