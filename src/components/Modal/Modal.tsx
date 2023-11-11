@@ -22,10 +22,7 @@ export const Modal = ({ children, handleClose }: Props) => {
                 <FontAwesomeIcon icon={faClose} size="2xl" />
             </div>
             <div className="flex flex-col justify-center items-center h-full w-full">
-                <div
-                    className="xl:w-1/2 3xl:w-2/5 mb-16 bg-white p-8 sm:px-12 rounded-2xl shadow-xl"
-                    ref={ref}
-                >
+                <div className="mb-16 bg-white p-8 sm:px-12 rounded-2xl shadow-xl" ref={ref}>
                     {children}
                 </div>
             </div>
