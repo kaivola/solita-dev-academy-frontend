@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
 import CheapRuler from "cheap-ruler";
-import { Dispatch, SetStateAction, useMemo } from "react";
+import { Dispatch, SetStateAction, useEffect, useMemo, useState } from "react";
 
 import Dropdown from "@/components/Dropdown";
 import { Station } from "@/lib/dev-academy-assignment";
@@ -40,26 +41,29 @@ const getPosition = (options?: PositionOptions): Promise<GeolocationPosition> =>
 };
 
 export const StationSort = ({ stations, setStations }: Props) => {
-    const distanceSort = useMemo(async () => {
+    const [position, setPosition] = useState<GeolocationCoordinates>();
+
+    const distanceSort = useMemo(() => {
         const ruler = new CheapRuler(60.2, "meters");
-        return getPosition(positionOptions).then((position) => {
+        if (position) {
             return [...stations].sort(
                 (a, b) =>
-                    ruler.distance(
-                        [a.coordinateX, a.coordinateY],
-                        [position.coords.longitude, position.coords.latitude]
-                    ) -
-                    ruler.distance(
-                        [b.coordinateX, b.coordinateY],
-                        [position.coords.longitude, position.coords.latitude]
-                    )
+                    ruler.distance([a.coordinateX, a.coordinateY], [position.longitude, position.latitude]) -
+                    ruler.distance([b.coordinateX, b.coordinateY], [position.longitude, position.latitude])
             );
-        });
-    }, [stations]);
+        }
+        return stations;
+    }, [stations, position]);
+
+    useEffect(() => {
+        getPosition(positionOptions)
+            .then((p) => setPosition(p.coords))
+            .catch((err) => console.error(err));
+    }, []);
 
     const handleSortSelect = async (selected: DropdownOptions) => {
         if (selected.value === SortType.DISTANCE) {
-            setStations(await distanceSort);
+            setStations(distanceSort);
         } else {
             setStations([...stations].sort((a, b) => a.name.localeCompare(b.name)));
         }

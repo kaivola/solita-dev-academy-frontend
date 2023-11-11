@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 "use client";
 
 import { useSearchParams } from "next/navigation";
@@ -11,6 +12,8 @@ import { Station } from "@/lib/dev-academy-assignment";
 import { formatDistance, formatDuration } from "@/lib/formatStationStatistics";
 
 import TopDestinationsTable from "./TopDestinationsTable";
+
+/* eslint-disable no-console */
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
 
@@ -30,13 +33,15 @@ export const StationModal = () => {
 
     useEffect(() => {
         if (stationId) {
-            (async () => {
-                const res = await fetch(`${APP_URL}/api/stations/${stationId}`);
-                if (res.ok && res.status == 200) {
-                    setStation(await res.json());
+            fetch(`${APP_URL}/api/stations/${stationId}`)
+                .then((res) => {
+                    return res.ok ? res.json() : Promise.reject("Fetching station info failed");
+                })
+                .then((station) => {
+                    setStation(station);
                     setLoading(false);
-                }
-            })();
+                })
+                .catch((err) => console.error(err));
         }
     }, [stationId]);
 
