@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 
 import "./globals.css";
@@ -10,11 +11,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <html lang="en">
             <body>
-                <div className="flex h-screen">
-                    <div className="h-full flex-grow bg-primaryBackground">
-                        <div className="h-full">{children}</div>
-                    </div>
-                </div>
+                <div className="h-screen w-screen">{children}</div>
+                <Analytics />
             </body>
         </html>
     );
