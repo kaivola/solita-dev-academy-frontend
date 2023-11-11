@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
 
-import StationList from "@/components/StationList";
 import StationModal from "@/components/StationModal";
 import { Station } from "@/lib/dev-academy-assignment";
 

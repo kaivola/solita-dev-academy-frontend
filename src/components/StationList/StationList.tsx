@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useMap } from "react-leaflet";
 
@@ -21,7 +20,6 @@ export const StationList = ({ stations }: Props) => {
     const [filteredStations, setFilteredStations] = useState<Station[]>(stations);
 
     const listRef = useRef<HTMLDivElement>(null);
-    const router = useRouter();
     const map = useMap();
 
     useEffect(() => {
