@@ -1,3 +1,11 @@
+/**
+ * Adds unit to the distance given as meters and with 1 decimal number.
+ * If the distance is bigger than 10000 meters, converts it to kilometers.
+ * @param distance - distance in meters
+ * @example
+ * formatDistance(123.123)
+ * //Returns: 123.1 m
+ */
 export const formatDistance = (distance: number): String => {
     if (isNaN(distance)) return "";
 
@@ -9,6 +17,18 @@ export const formatDistance = (distance: number): String => {
     return distance.toFixed(1) + " m";
 };
 
+/**
+ * Formats duration given as seconds to string representation
+ * in ss, mm:ss or hh:mm:ss format depending on the duration
+ * @param duration - duration in seconds
+ * @example
+ *
+ * formatDuration(100)
+ * //Returns: 1min 40s
+ *
+ * formatDuration(3601)
+ * //Returns: 1h 0min 1s
+ */
 export const formatDuration = (duration: number): String => {
     if (isNaN(duration) || duration < 0) return "";
     if (duration < 60) return duration + "s";
